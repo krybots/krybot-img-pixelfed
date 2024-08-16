@@ -13,8 +13,6 @@
 			<div><span>© {{ getYear() }} {{config.domain}}</span></div>
 			<div class="spacer">·</div>
 			<div><a href="https://krybot.com" class="text-bluegray-500 font-weight-bold">Powered by Krybot</a></div>
-			<div class="spacer">·</div>
-			<div><span>v{{config.version}}</span></div>
 		</div>
 	</div>
 </template>
