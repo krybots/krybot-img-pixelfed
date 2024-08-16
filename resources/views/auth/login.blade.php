@@ -18,6 +18,9 @@
                     </div>
                     @endforeach
                 @endif
+                @if (config('oidc.enabled'))
+                    <a href="{{ route('oidc.signin') }}">Login with {{config('oidc.provider_name')}}</a>
+                @else
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -119,6 +122,7 @@
                     </p>
                     @endif
                 </div>
+                @endif
             </div>
         </div>
     </div>
