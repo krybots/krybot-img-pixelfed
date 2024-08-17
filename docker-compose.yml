@@ -73,8 +73,8 @@ services:
       - ${DOCKER_WEB_PROFILE:-}
     build:
       target: ${DOCKER_APP_RUNTIME}-runtime
-      cache_from:
-        - "type=registry,ref=${DOCKER_APP_IMAGE}-cache:${DOCKER_APP_TAG}"
+      # cache_from:
+      #   - "type=registry,ref=${DOCKER_APP_IMAGE}-cache:${DOCKER_APP_TAG}"
       args:
         APT_PACKAGES_EXTRA: "${DOCKER_APP_APT_PACKAGES_EXTRA:-}"
         BUILD_FRONTEND: "${DOCKER_APP_BUILD_FRONTEND:-0}"
@@ -116,7 +116,7 @@ services:
       timeout: 5s
 
   worker:
-    image: "${DOCKER_APP_IMAGE}:${DOCKER_APP_TAG}"
+    image: "${DOCKER_APP_IMAGE_ORIGIN}:${DOCKER_APP_TAG}"
     container_name: "${DOCKER_ALL_CONTAINER_NAME_PREFIX}-worker"
     command: gosu www-data php artisan horizon
     restart: unless-stopped
@@ -125,8 +125,8 @@ services:
       - ${DOCKER_WORKER_PROFILE:-}
     build:
       target: ${DOCKER_APP_RUNTIME}-runtime
-      cache_from:
-        - "type=registry,ref=${DOCKER_APP_IMAGE}-cache:${DOCKER_APP_TAG}"
+      context: .
+      dockerfile: Dockerfile
       args:
         APT_PACKAGES_EXTRA: "${DOCKER_APP_APT_PACKAGES_EXTRA:-}"
         BUILD_FRONTEND: "${DOCKER_APP_BUILD_FRONTEND:-0}"

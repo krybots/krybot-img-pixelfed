@@ -147,6 +147,9 @@ ENV APT_PACKAGES_EXTRA=${APT_PACKAGES_EXTRA}
 # Install and configure base layer
 COPY docker/shared/root/docker/install/base.sh /docker/install/base.sh
 
+RUN sed -i -e 's/\r$//' /docker/install/base.sh
+
+#RUN apt-get update
 RUN --mount=type=cache,id=pixelfed-apt-${PHP_VERSION}-${PHP_DEBIAN_RELEASE}-${TARGETPLATFORM},sharing=locked,target=/var/lib/apt \
     --mount=type=cache,id=pixelfed-apt-cache-${PHP_VERSION}-${PHP_DEBIAN_RELEASE}-${TARGETPLATFORM},sharing=locked,target=/var/cache/apt \
     /docker/install/base.sh
@@ -169,6 +172,8 @@ ARG TARGETPLATFORM
 COPY --from=php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 
 COPY docker/shared/root/docker/install/php-extensions.sh /docker/install/php-extensions.sh
+
+RUN sed -i -e 's/\r$//' /docker/install/php-extensions.sh
 
 RUN --mount=type=cache,id=pixelfed-pear-${PHP_VERSION}-${PHP_DEBIAN_RELEASE}-${TARGETPLATFORM},sharing=locked,target=/tmp/pear  \
     --mount=type=cache,id=pixelfed-apt-${PHP_VERSION}-${PHP_DEBIAN_RELEASE}-${TARGETPLATFORM},sharing=locked,target=/var/lib/apt \

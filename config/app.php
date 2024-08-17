@@ -161,7 +161,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         // App\Providers\TelescopeServiceProvider::class,
         App\Providers\PassportServiceProvider::class,
-        GCS\OIDCClient\OIDCServiceProvider::class,
+        GCS\OIDCClient\OIDCServiceProvider::class
     ],
 
     /*
