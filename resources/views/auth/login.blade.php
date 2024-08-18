@@ -18,10 +18,11 @@
                     </div>
                     @endforeach
                 @endif
-                @if (config('oidc.enabled'))
-                    <a href="{{ route('oidc.signin') }}">Login with {{config('oidc.provider_name')}}</a>
-                @else
                 <div class="card-body">
+                    @if (config('oidc.enabled'))
+                       <div class="text-center"><a href="{{ route('oidc.signin') }}">Login with Krybot Auth</a></div>
+                    @endif
+                    <hr>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -122,7 +123,6 @@
                     </p>
                     @endif
                 </div>
-                @endif
             </div>
         </div>
     </div>

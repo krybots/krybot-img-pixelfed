@@ -12,13 +12,9 @@ class OIDCUserProvider implements UserProvider
 {
     private function is_admin($user_info)
     {
-	    if (!property_exists($user_info, "resource_access"))
+	    if (!property_exists($user_info, "groups"))
 		    return false;
-	    if (!property_exists($user_info->resource_access, "pixelfed"))
-		    return false;
-	    if (!property_exists($user_info->resource_access->pixelfed, "roles"))
-		    return false;
-	    return in_array("admin", $user_info->resource_access->pixelfed->roles);
+	    return in_array("krybot_img_admin_usersgrp", $user_info->groups);
     }
 
     public function retrieveByInfo($user_info)
@@ -126,5 +122,9 @@ class OIDCUserProvider implements UserProvider
     public function validateCredentials(Authenticatable $user, array $credentials)
     {
         return true;
+    }
+
+    public function rehashPasswordIfRequired(Authenticatable $user,array $credentials, bool $force = false){
+        return;
     }
 }
