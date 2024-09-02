@@ -8,7 +8,7 @@
             <ul class="navbar-nav mr-auto">
             </ul>
             <div class="my-2 my-lg-0">
-                <a class="btn btn-outline-light btn-sm rounded-pill font-weight-bold px-4" href="/OIDC/sign-in">Login with Krybot Auth</a>
+                <a class="btn btn-outline-light btn-sm rounded-pill font-weight-bold px-4" href="/oidc/sign-in">Login with Krybot Auth</a>
                 <a v-if="config.open_registration || config.curated_onboarding" class="ml-2 btn btn-primary btn-primary-alt btn-sm rounded-pill font-weight-bold px-4" :href="regLink">Sign up</a>
             </div>
         </div>

@@ -1,0 +1,11 @@
+Clone from Git repo https://github.com/krybots/krybot-img-pixelfed.git
+Copy env file to cloned folder
+Do not run chmod for all the cloned folders
+
+
+in worker container /var/www/vendor/gcs/oidc-client/src/Auth/OIDCUserProvider.php
+in this file add following function
+
+public function rehashPasswordIfRequired(Authenticatable $user,array $credentials, bool $force = false){
+    return ;
+}
