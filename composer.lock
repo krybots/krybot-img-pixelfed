@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5269d9a2a7a1bc9506b4011bced25268",
+    "content-hash": "0917fc5d5e7fc41ee8a4932099046315",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1560,15 +1560,22 @@
         },
         {
             "name": "gcs/oidc-client",
-            "version": "1.0.0",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/krybots/gcs-oidc.git",
+                "reference": "c473ccef58ea685d0ab5bb9a2206d5f970e17365"
+            },
             "dist": {
-                "type": "path",
-                "url": "./oidc-client",
-                "reference": "bfed1ebb0ce47c482676ef60a181a0dcd1c47a7d"
+                "type": "zip",
+                "url": "https://api.github.com/repos/krybots/gcs-oidc/zipball/c473ccef58ea685d0ab5bb9a2206d5f970e17365",
+                "reference": "c473ccef58ea685d0ab5bb9a2206d5f970e17365",
+                "shasum": ""
             },
             "require": {
                 "jumbojett/openid-connect-php": "^0.8.0"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -1584,9 +1591,11 @@
                     "email": "webmaster@cabinetoffice.gov.uk"
                 }
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/krybots/gcs-oidc/tree/main",
+                "issues": "https://github.com/krybots/gcs-oidc/issues"
+            },
+            "time": "2024-09-03T05:11:09+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -12652,7 +12661,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "gcs/oidc-client": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
